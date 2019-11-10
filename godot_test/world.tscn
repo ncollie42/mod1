@@ -11,5 +11,5 @@ transform = Transform( 1, 0, 0, 0, 0.8957, 0.44466, 0, -0.44466, 0.8957, 0, 14.2
 [node name="Rotate" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="Rotate"]
-transform = Transform( 1, 0, 0, 0, 0.912135, 0.409891, 0, -0.409891, 0.912135, 0, 25.5453, 48.4159 )
+transform = Transform( 1, 0, 0, 0, 0.912135, 0.409891, 0, -0.409891, 0.912135, 0, 5.90305, 14.3098 )
 far = 8192.0

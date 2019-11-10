@@ -41,7 +41,3 @@ func _ready():
 	var mesh_instance = MeshInstance.new()
 	mesh_instance.mesh = t_surface.commit()
 	add_child(mesh_instance)
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	$Rotate.rotate_y(delta * 0.5)
