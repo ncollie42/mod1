@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "mod1.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -58,6 +59,7 @@ Model genMymodel() {
     Model model = LoadModelFromMesh(mesh);
     model.materials[0].maps[MAP_DIFFUSE].texture = texture;
     // TODO: unload stuLff
+    UnloadImage(image);
     return model;
 }
 
@@ -65,8 +67,9 @@ int main(void)
 {
     Camera camera = init();
     //TODO: read input, get file
-    //Model tmp = getTerrain();
-    Model tmp = genMymodel();
+    char *file = "points.mod1";
+    Model tmp = getTerrain(file);
+    // Model tmp = genMymodel();
     int v;
     while (!WindowShouldClose())
     {
@@ -77,7 +80,7 @@ int main(void)
             ClearBackground(RAYWHITE);
             // TODO: update water
             BeginMode3D(camera);
-            DrawModel(tmp, (Vector3){0}, 1.0f, RED);
+            // DrawModel(tmp, (Vector3){0}, 1.0f, RED);
             DrawGrid(20, 1.0f);
             // TODO: Draw water
             // TODO: Gui??
@@ -86,5 +89,8 @@ int main(void)
         EndDrawing();
     }
 
+    // Unloading stuff: ---------------
+    // UnloadTexture(tmp.materials[0].maps[MAP_DIFFUSE].texture);
+    UnloadModel(tmp); 
     CloseWindow();
 }
