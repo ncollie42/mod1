@@ -10,8 +10,22 @@
 # define _CYAN    "\x1b[36m"
 # define _BLACK "\033[0;90m"
 # define _RESET   "\x1b[0m"
+#define POS(x, y, width) ((x) + (y) * (width)) 
+//structs
+typedef struct ParcedPoints {
+    Vector3 points[50]; 
+    int     maxX;
+    int     maxY;
+} ParcedPoints;
 
 //parce files
 Model getTerrain(char *file);
+
+//debug functions
+void printMapDebug(unsigned char *map, int width, int height);
+
+//parse File
+ParcedPoints parceFile(char *file);
+
 
 #endif

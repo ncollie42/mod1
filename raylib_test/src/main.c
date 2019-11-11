@@ -20,6 +20,19 @@ unsigned char data[] = {
 ,0,0,0,0,0,0,0,0,0,0
 };
 
+// unsigned char data[] = {
+//  0,0,0,0,0,0,0,0,0,0
+// ,0,0,0,0,0,0,0,0,0,0
+// ,0,0,0,0,0,0,0,0,0,0
+// ,0,0,0,0,0,0,0,0,0,0
+// ,0,0,0,0,100,0,0,0,0,0
+// ,0,0,0,0,0,0,0,0,0,0
+// ,0,0,0,0,0,0,0,0,0,0
+// ,0,0,0,0,0,0,0,0,0,0
+// ,0,0,0,0,0,0,0,0,0,0
+// ,0,0,0,0,0,0,0,0,0,0
+// };
+
 
 Camera init()
 {
@@ -65,10 +78,11 @@ Model genMymodel() {
 
 int main(void)
 {
-    Camera camera = init();
-    //TODO: read input, get file
     char *file = "points.mod1";
+    Camera camera = init();
     Model tmp = getTerrain(file);
+    
+    //TODO: read input, get file
     // Model tmp = genMymodel();
     int v;
     while (!WindowShouldClose())
@@ -80,7 +94,7 @@ int main(void)
             ClearBackground(RAYWHITE);
             // TODO: update water
             BeginMode3D(camera);
-            // DrawModel(tmp, (Vector3){0}, 1.0f, RED);
+            DrawModel(tmp, (Vector3){0}, 1.0f, RED);
             DrawGrid(20, 1.0f);
             // TODO: Draw water
             // TODO: Gui??
