@@ -3,9 +3,11 @@
 #include <math.h>
 #define PI 3.14159265358979323846f
 
+
+
 void testAlgo(void) {
     int d = 20;
-    double unit = (PI/2.0)/10;
+    double unit = (PI/2.0)/10;  // (PI / 2) / radious  -- Makes 1 unit
     printf("%f\n", unit);
     double tmp = cos(unit);
     printf("%f\n", tmp);

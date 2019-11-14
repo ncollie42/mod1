@@ -21,11 +21,14 @@ typedef struct ParcedPoints {
 //parce files
 Model getTerrain(char *file);
 
-//debug functions
-void printMapDebug(unsigned char *map, int width, int height);
 
 //parse File
 ParcedPoints parceFile(char *file);
 
+//interpolation
+void interpolateMap(Image map, ParcedPoints points);
+
+//debug functions
+void printMapDebug(unsigned char *map, int width, int height);
 
 #endif

@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "cstdlib": "c",
-        "raylib.h": "c"
+        "raylib.h": "c",
+        "complex": "c",
+        "cmath": "c"
     }
 }

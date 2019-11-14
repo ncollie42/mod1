@@ -41,12 +41,12 @@ Camera init()
     InitWindow(screenWidth, screenHeight, "Mod1 - Terrain & water");
 
     Camera camera = {
-        .position = {18.0f, 16.0f, 18.0f},
+        .position = {18.0f, 8.0f, 18.0f},
         .target = {0.0f, 0.0f, 0.0f},
         .up = {0.0f, 1.0f, 0.0f},
         .fovy = 45.0f,
         .type = 0};
-    SetCameraMode(camera, CAMERA_ORBITAL);
+    SetCameraMode(camera, CAMERA_FIRST_PERSON);
     // SetCameraMoveControls(119, 115, 
     //                            100, 97, 
     //                            32, 118);  

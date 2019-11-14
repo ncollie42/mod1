@@ -80,3 +80,5 @@ ParcedPoints parceFile(char *file) {
     
     return ret;
 }
+
+//TODO: Cap Z input to 0-255   ?

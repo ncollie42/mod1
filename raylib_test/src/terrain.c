@@ -24,7 +24,7 @@ Image genBaseMap(ParcedPoints givenpoints) {
     unsigned char   *map;
     int             x;
     int             y;
-    int             min = 50;
+    int             min = 200;
     int             i = 0;
 
     // ToDo: Extra padding for x and y for max points
@@ -33,12 +33,12 @@ Image genBaseMap(ParcedPoints givenpoints) {
     y = givenpoints.maxY >= min ? givenpoints.maxY: min;
     map = (unsigned char *)malloc(sizeof(unsigned char) * x * y);
     memset(map, 0, x * y);
-    while (i < 50)
-    {
-        int temp = POS(givenpoints.points[i].x, givenpoints.points[i].y, x);
-        map[temp] = givenpoints.points[i].z;
-        i++;
-    }
+    // while (i < 50) //Dont really need this
+    // {
+    //     int temp = POS(givenpoints.points[i].x, givenpoints.points[i].y, x);
+    //     map[temp] = givenpoints.points[i].z;
+    //     i++;
+    // }
     baseMap.height = y;
     baseMap.width = x;  //TODO: use height and width to begin with?
     baseMap.data = map;
@@ -47,15 +47,17 @@ Image genBaseMap(ParcedPoints givenpoints) {
     return (baseMap);
 }
 
+
+//negative points?
 Model getTerrain(char *file)
 {
     ParcedPoints points = parceFile(file);
-    Image map = genBaseMap(points);
-    // interpolateMap(map);
+    Image map = genBaseMap(points); //Just make the space? no need to add points here
+    interpolateMap(map, points); // pass points here
 
     // printf("%p %d %d %d %d\n", map.data, map.height, map.width, map.mipmaps, map.format);
     Texture2D texture = LoadTextureFromImage(map);
-    Mesh mesh = GenMeshHeightmap(map, (Vector3){16,8,16});
+    Mesh mesh = GenMeshHeightmap(map, (Vector3){10,5,10});
     Model model = LoadModelFromMesh(mesh);
     model.materials[0].maps[MAP_DIFFUSE].texture = texture;
     //TODO: get points (list? array?)
